@@ -26,6 +26,9 @@ int main(void) {
             free(input_line);
             exit(0); /* Exit with status 0 for EOF */
         }
+	
+	if (emptyLine(input_line) == 1)
+            continue;
 
         command_arguments = parseLine(input_line);
 
@@ -34,9 +37,6 @@ int main(void) {
             free(input_line);
             exit(0);
         }
-
-        if (emptyLine(input_line) == 1)
-            continue;
 
         exit_status = execute(command_arguments);
 
